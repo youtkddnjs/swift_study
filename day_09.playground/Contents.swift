@@ -1,27 +1,49 @@
 import Cocoa
 
-var arr = [67, 78, 54, 91, 88, 63, 87, 75, 82]
+// 1부터 10까지의 숫자 중에서 짝수를 찾아 배열로 만듭니다.
+var array = [22, 67, 7, 12, 98, 4, 23, 70, 4, 53, 23, 43, 22, 19, 67, 16, 4, 32]
+var array2 = [Int]()
+var array3 = [Int]()
+var array4 = [Int]()
+var array5 = [Int]()
 
-var bic = 100
-var small = 0
-var cnt = 0
-var result = 0
+var j = 0
 
-for i in arr{
-    if i >= 70 {
-        cnt += 1
-        result += i
+for i in array {
+    if i % 2 == 0 && !array2.contains(i){
+        array2.append(i)
     }
     
-    if i > small {
-        small = i
+    if ( !(array.index(of:i)! == j) && !array5.contains(i)){
+        array5.append(i)
     }
+    j += 1
     
-    if i < bic {
-        bic = i
+    print(array.filter({ $0 == i }))
+    
+    
+}//for i in array {
+
+for i in 0..<array.count {
+    for j in (i + 1)..<array.count {
+        if array[i] == array[j] {
+            if !array3.contains(array[i]) {
+                array3.append(array[i])
+            }
+        }
     }
-    
-}
+}//for i in 0..<array.count {
+
+for element in array {
+    if !array4.contains(element) {
+        array4.append(element)
+    }
+} //for element in array {
 
 
-print("가장 큰 수 : \(small) 가장 작은 수 : \(bic) 합격자 수 : \(cnt) 합겨장 평균 : \(result/cnt)")
+
+//print(array2)
+//print(array3)
+//print(array4)
+//print(array5)
+ 
